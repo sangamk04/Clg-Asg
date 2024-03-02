@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Catalog</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .navbar {
+      background-color: #00377b;
+      overflow: hidden;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .navbar a.active {
+      /* background-color: #4CAF50; */
+      color: white;
+    }
+
+    .navbar .icon {
+      display: none;
+    }
+
+    @media screen and (max-width: 600px) {
+      .navbar a:not(:first-child) {
+        display: none;
+      }
+
+      .navbar a.icon {
+        float: right;
+        display: block;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .navbar.responsive {
+        position: relative;
+      }
+
+      .navbar.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .navbar.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+    }
+
+    .catalog-container,
+    .cart-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    button {
+      background-color: #00377b;
+      color: #fff;
+      border: none;
+      padding: 13px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar" id="myNavbar">
+    <a href="index.html" class="active"><img style="height: 50px;"
+        src="https://i.postimg.cc/3xM8nZVD/606bf00574f01432224138-logo.png" /></a>
+    <a style="margin-top: 15px;" href="home.html">Home</a>
+    <!-- <a style="margin-top: 15px;" href="login.html">Login</a>
+    <a style="margin-top: 15px;" href="registration.html">Registration</a> -->
+    <a style="margin-top: 15px;" href="catalogue.html">Catalogue</a>
+    <a style="margin-top: 15px;" href="cart.html">Cart</a>
+    <a style="margin-top: 15px;" href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
+      <img src="menu-icon.png" alt="Menu">
+    </a>
+  </div>
+
+  <script>
+    function toggleNavbar() {
+      var x = document.getElementById("myNavbar");
+      if (x.className === "navbar") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar";
+      }
+    }
+  </script>
+  <div class="catalog-container">
+    <h2>Book Catalogue</h2>
+    <table>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Details</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td><img src="https://i.postimg.cc/pXvTgj1r/61wo-My-gj6-L-AC-UY327-FMwebp-QL65.jpg" alt="Book 1"></td>
+        <td>Computer science engineering</td>
+        <td>899</td>
+        <td>Author : Pankaj Kumar, Fourth edition</td>
+        <td><button
+            onclick="addToCart('Computer science engineering', 899, 'https://i.postimg.cc/pXvTgj1r/61wo-My-gj6-L-AC-UY327-FMwebp-QL65.jpg', 'Author : Pankaj Kumar, Fourth edition')">Add
+            to Cart</button></td>
+      </tr>
+      <tr>
+        <td><img src="https://i.postimg.cc/j2SsS6V4/cropped-KOL535730.webp" alt="Book 2"></td>
+        <td>Electonics and communication engineering</td>
+        <td>799</td>
+        <td>Author : Kishor Kashyap, Fourth edition</td>
+        <td><button
+            onclick="addToCart('Electonics and communication engineering', 799, 'https://i.postimg.cc/j2SsS6V4/cropped-KOL535730.webp', 'Author : Kishor Kashyap, Fourth edition')">Add
+            to Cart</button></td>
+      </tr>
+      <tr>
+        <td><img src="https://i.postimg.cc/d34BcFvV/51-Cljostk-FL-SX342-SY445-1.jpg" alt="Book 2"></td>
+        <td>electrical engineering</td>
+        <td>999</td>
+        <td>Author : Ritu Sahdev, Fourth edition</td>
+        <td><button
+            onclick="addToCart('electrical engineering', 999, 'https://i.postimg.cc/d34BcFvV/51-Cljostk-FL-SX342-SY445-1.jpg', 'Author : Ritu Sahdev, Fourth edition')">Add
+            to Cart</button></td>
+      </tr>
+      <tr>
+        <td><img src="https://i.postimg.cc/V6smL9nL/51oa-A3-Jq-URL-SY445-SX342-1.jpg" alt="Book 2"></td>
+        <td>Civil engineering</td>
+        <td>699</td>
+        <td>Author : SP Gupta, Fourth edition</td>
+        <td><button
+            onclick="addToCart('Civil engineering', 699, 'https://i.postimg.cc/V6smL9nL/51oa-A3-Jq-URL-SY445-SX342-1.jpg', 'Author : SP Gupta, Fourth edition')">Add
+            to Cart</button></td>
+      </tr>
+      <!-- Add more books as needed -->
+    </table>
+
+  </div>
+
+</body>
+
+</html>
+
+
+<script>
+  function addToCart(name, price, image, details) {
+    // Get the cart items from localStorage or initialize an empty array
+    let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Check if the item is already in the cart
+    let existingItem = cartItems.find(item => item.name === name);
+
+    if (existingItem) {
+      // If the item is already in the cart, update the quantity
+      existingItem.quantity += 1;
+    } else {
+      // If the item is not in the cart, add it with quantity 1
+      cartItems.push({ name, price, image, details, quantity: 1 });
+    }
+
+    // Save the updated cart items to localStorage
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }
+</script>
