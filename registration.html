@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    body {
+      background-size: cover;
+      background-repeat: no-repeat;
+      /* display: flex; */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url(https://i.postimg.cc/4dZKcnBS/1499333475php-Y9h-QNo.jpg);
+    }
+
+    .navbar {
+      background-color: #00377b;
+      overflow: hidden;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .navbar a.active {
+      color: white;
+    }
+
+    .navbar .icon {
+      display: none;
+    }
+
+    @media screen and (max-width: 600px) {
+      .navbar a:not(:first-child) {
+        display: none;
+      }
+
+      .navbar a.icon {
+        float: right;
+        display: block;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .navbar.responsive {
+        position: relative;
+      }
+
+      .navbar.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .navbar.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+    }
+
+    .registration-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 60%;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    .checkbox-group {
+      margin-top: 5px;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      width: 48%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      background-color: #4caf50;
+      color: #fff;
+    }
+
+    .reset-btn {
+      background-color: #f44336;
+      color: #fff;
+    }
+
+    .container {
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 300px;
+  }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <style>
+    .form-group {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar" id="myNavbar">
+    <a href="index.html" class="active"><img style="height: 50px;"
+        src="https://i.postimg.cc/3xM8nZVD/606bf00574f01432224138-logo.png" /></a>
+    <!-- <a style="margin-top: 15px;" href="index.html">Home</a> -->
+    <a style="margin-top: 15px;" href="index.html">Login</a>
+    <a style="margin-top: 15px;" href="registration.html">Registration</a>
+    <!-- <a style="margin-top: 15px;" href="catalogue.html">Catalogue</a>
+    <a style="margin-top: 15px;" href="cart.html">Cart</a> -->
+    <a style="margin-top: 15px;" href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
+      <img src="menu-icon.png" alt="Menu">
+    </a>
+  </div>
+  <div class="registration-container container">
+    <h2>Registration Form</h2>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required minlength="6">
+    </div>
+    
+    <div class="form-group">
+        <label for="email_reg">Email:</label>
+        <input type="email" id="email_reg" placeholder="Enter your email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+    </div>
+    <div class="form-group">
+      <label for="password_reg">Password:</label>
+      <input type="password" id="password_reg" placeholder="Enter your password" required minlength="6">
+  </div>
+    <div class="form-group">
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required pattern="[0-9]{10}">
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender:</label>
+      <select id="gender" required>
+        <option value="male">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="dob">Date of Birth:</label>
+      <input type="text" id="dob" placeholder="Select Date of Birth" required>
+    </div>
+
+    <div class="form-group">
+      <label>Languages Known:</label>
+      <div class="checkbox-group">
+        <input type="checkbox" id="english" name="language" value="english">
+        <label for="english">English</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="telugu" name="language" value="telugu">
+        <label for="telugu">Telugu</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="hindi" name="language" value="hindi">
+        <label for="hindi">Hindi</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="tamil" name="language" value="tamil">
+        <label for="tamil">Tamil</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <textarea style="width: 100%;" id="address" placeholder="Enter your address" required></textarea>
+    </div>
+    <div class="btn-container">
+      <button class="submit-btn" onclick="register()">Register</button>
+      <button class="reset-btn" onclick="resetForm('registration')">Reset</button>
+  </div>
+  </div>
+
+
+  <script>
+    function register() {
+        // Get form values
+        var name = document.getElementById("name").value;
+        var password = document.getElementById("password_reg").value;
+        var email = document.getElementById("email_reg").value;
+
+        // Construct user object
+        var user = {
+            name: name,
+            password: password,
+            email: email
+            // Add other properties as needed
+        };
+
+        // Store user data in local storage
+        localStorage.setItem('user', JSON.stringify(user));
+
+        // Redirect to login page
+        window.location.href = "index.html";
+    }
+
+    function resetForm(formId) {
+        document.getElementById(formId).reset();
+    }
+</script>  
+
+<script>
+  $(function() {
+    $("#dob").datepicker({
+      dateFormat: 'dd-mm-yy',
+      changeMonth: true,
+      changeYear: true,
+      yearRange: 'c-100:c', // Allows selection from 100 years ago to current year
+      maxDate: '0', // Disables future dates
+      showButtonPanel: true,
+      closeText: "Close",
+      currentText: "Today",
+      onSelect: function(selectedDate) {
+        // You can add additional logic here if needed
+        console.log("Selected date: " + selectedDate);
+      }
+    });
+  });
+</script>
+
+ 
+  <script>
+    function toggleNavbar() {
+      var x = document.getElementById("myNavbar");
+      if (x.className === "navbar") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar";
+      }
+    }
+  </script>
+</body>
+
+</html>
